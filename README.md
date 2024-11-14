@@ -112,17 +112,18 @@ $$T(n) = 13(13(13T(\frac{n}{13^3}) + 2n) + 2n) + 2n$$
 
 With these iterations, we can assume the following pattern:
 
-$$T(n) = 13T(\frac{n}{13^k}) + 2nk$$
+$$T(n) = 13^k * T(\frac{n}{13^k}) + 2nk$$
 
 Now plug in $k = \log_{13}n$:
 
-$$T(n) = T(1) + 2n*\log_{13}n$$
+$$T(n) = n * T(1) + 2n*\log_{13}n$$
 
 Since $T(1)$ is a constant time operation, then $T(1) = \Theta(1)$.\
 Simplify:
 
 $$T(n) \in n * \Theta(1) + 2n * \log_{13}n$$
-$$T(n) \in \Theta(n)$$
+$$T(n) \in \Theta(n + 2n * \log_{13}n)$$
+$$T(n) \in \Theta(n \log{n})$$
 
 
 
